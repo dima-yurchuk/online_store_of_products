@@ -15,9 +15,9 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
   test "product price must be positive" do
-    product = Product.new(title: "Сік",
-                          description: "yyy",
-                          image_url: "juice_Sandora.jpg")
+    product = Product.new(title: "My Book Title11",
+                          description: "yyyy",
+                          image_url: "juice_Sandora1.jpg")
 
     product.price = -1
     assert product.invalid?
@@ -39,16 +39,25 @@ class ProductTest < ActiveSupport::TestCase
   end
   test "image url" do
     ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
-http://a.b.c/x/y/z/fred.gif }
+    http://a.b.c/x/y/z/fred.gif }
     bad = %w{ fred.doc fred.gif/more fred.gif.more }
     ok.each do |image_url|
       assert new_product(image_url).valid?,
              "#{image_url} shouldn't be invalid"
     end
-
     bad.each do |image_url|
       assert new_product(image_url).invalid?,
              "#{image_url} shouldn't be valid"
     end
   end
+  test "product is not valid without a unique title - i18n" do
+    product = Product.new(title: products(:ruby).title,
+                          description: "yyy",
+                          price: 1,
+                          image_url: "fred.gif")
+    assert product.invalid?
+    assert_equal [I18n.translate('errors.messages.taken')],
+                 product.errors[:title]
+  end
 end
+
