@@ -20,11 +20,32 @@
   <li><a href="/questions">Questions</a></li>
   <li><a href="/news">News</a></li>
   <li><a href="/contact">Contact</a></li>
+<!--  <li id="data_now"></li>-->
+<!--  <li id="time_now"></li>-->
   </ul>
   </nav>
   <main class='<%= controller.controller_name %>'>
     <%= yield %>
   </main>
   </section>
+<!--<script type="text/javascript">-->
+<!--    function checkTime(number)-->
+<!--    {-->
+<!--        if (number<10)-->
+<!--        {-->
+<!--            number="0" + number;-->
+<!--        }-->
+<!--        return number;-->
+<!--    }-->
+<!--    var d=new Date();-->
+<!--    var day=d.getDate();-->
+<!--    var month=d.getMonth() + 1;-->
+<!--    var year=d.getFullYear();-->
+<!--    data_in_site = document.getElementById("data_now");-->
+<!--    data_in_site.innerText = day + "." + month + "." + year;-->
+<!--    var m = new Date();-->
+<!--    time_in_site = document.getElementById("time_now");-->
+<!--    time_in_site.innerText = checkTime(m.getHours()) + ":" + checkTime(m.getMinutes()) + ":" + (m.getSeconds());-->
+<!--</script>-->
 </body>
 </html>
