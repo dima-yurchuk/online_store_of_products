@@ -1,0 +1,50 @@
+// Place all the styles related to the Store controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.store {
+  max-width: 80em;
+  ul.catalog {
+    border-top: solid 0.250em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 1em;
+      margin: 0;
+      border-bottom: solid thin #ddd;
+      // This makes sure our <li> has enough height
+      // to hold the entire image, since it's floated
+      &::after {
+        clear: both;
+        content: " ";
+        display: block;
+      }
+      img {
+        float: left;
+        padding: 1em;
+        margin-right: 1em;
+        margin-bottom: 1em;
+        box-shadow: 0.176em 0.176em 0.354em 0px rgba(0,0,0,0.75);
+      }
+      .price {
+        font-size: 1.414em;
+      }
+    }
+  }
+  #title_site{
+    margin: 1em 0 0.5em 0;
+    font-weight: normal;
+    position: relative;
+    text-shadow: 0 -1px rgba(0,0,0,0.6);
+    font-size: 28px;
+    line-height: 40px;
+    background: #355681;
+    background: rgba(53,86,129, 0.8);
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 0 10px 0 10px;
+    box-shadow: inset 0 0 5px rgba(53,86,129, 0.5);
+    font-family: 'Muli', sans-serif
+  }
+}
