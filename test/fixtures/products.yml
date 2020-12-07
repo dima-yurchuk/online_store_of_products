@@ -13,10 +13,10 @@ two:
   price: 9.99
 
 ruby:
-  title: Сік Сандора, Вишня, 0.95л
+  title: Sandora juice, Cherry, 0.95l
   description:
-    Склад
-    соки вишні та червоного винограду концентровані,
-    цукровий сироп, регулятор кислотності лимонна кислота Е330.
+    Warehouse
+    concentrated cherry and red grape juices,
+    sugar syrup, acidity regulator citric acid E330.
   price: 49.50
   image_url: juice_Sandora.jpg

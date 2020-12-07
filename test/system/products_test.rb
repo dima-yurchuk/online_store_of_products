@@ -31,7 +31,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Description", with: @product.description
     fill_in "Image url", with: @product.image_url
     fill_in "Price", with: @product.price
-    fill_in "Title", with: "Сік 'Сандора', Вишня, 0.95л"
+    fill_in "Title", with: "'Sandora' juice, Cherry, 0.95l"
     click_on "Update Product"
 
     assert_text "Product was successfully updated."

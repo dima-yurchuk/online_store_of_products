@@ -1,6 +1,9 @@
-Шановний <%= @order.name %>
-Дякуємо за нещодавнє замовлення від нашого інтернет магазину.
-Ви замовили такі товари:
+Dear <%= @order.name %>
+
+Thank you for your recent order from The Product Store.
+
+You ordered the following items:
+
 <%= render @order.line_items -%>
 
-Коли ваше замовлення надійде, ми надішлемо вам окремий електронний лист.
+We'll send you a separate email when your order ships.

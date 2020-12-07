@@ -52,9 +52,9 @@ class OrdersTest < ApplicationSystemTestCase
     Order.delete_all
     visit store_index_url
 
-    click_on 'Додати в кошик', match: :first
+    click_on 'Add to Cart', match: :first
 
-    click_on 'Купити'
+    click_on 'Checkout'
 
     fill_in 'order_name', with: 'Dave Thomas'
     fill_in 'order_address', with: '123 Main Street'
@@ -62,14 +62,14 @@ class OrdersTest < ApplicationSystemTestCase
 
     assert_no_selector "#order_routing_number"
 
-    select 'Check', from: 'Pay type'
+    select 'Check', from: 'Pay with'
 
     assert_selector "#order_routing_number"
 
     fill_in "Routing #", with: "123456"
     fill_in "Account #", with: "987654"
     perform_enqueued_jobs do
-      click_button "Розміщення замовлення"
+      click_button "Place Order"
     end
     orders = Order.all
     assert_equal 1, orders.size

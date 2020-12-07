@@ -3,7 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:one)
-    @title = "Сік Сандора, Вишня, 0.95л #{rand(1000)}"
+    @title = "Sandora juice, Cherry, 0.95l #{rand(1000)}"
   end
 
   test "should get index" do

@@ -5,14 +5,14 @@ class OrderMailerTest < ActionMailer::TestCase
     assert_equal "Pragmatic Store Order Confirmation", mail.subject
     assert_equal ["dave@example.org"], mail.to
     assert_equal ["storeproducts@example.com"], mail.from
-    assert_match /1 x Сік Сандора, Вишня, 0\.95л/, mail.body.encoded
+    assert_match /1 x Sandora juice, Cherry, 0\.95l/, mail.body.encoded
   end
   test "shipped" do
     mail = OrderMailer.shipped(orders(:one))
     assert_equal "Pragmatic Store Order Shipped", mail.subject
     assert_equal ["dave@example.org"], mail.to
     assert_equal ["storeproducts@example.com"], mail.from
-    assert_match /<td[^>]*>1<\/td>\s*<td>Сік Сандора, Вишня, 0\.95л<\/td>/,
+    assert_match /<td[^>]*>1<\/td>\s*<td>Sandora juice, Cherry, 0\.95l<\/td>/,
                      mail.body.encoded
   end
 end

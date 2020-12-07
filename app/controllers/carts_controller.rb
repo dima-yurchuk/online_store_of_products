@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  skip_before_action :authorize, only: [:create, :update, :destroy]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
@@ -29,7 +30,7 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Корзина успішно створена.' }
+        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Корзина успішно оновлена.' }
+        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to store_index_url,
-                                  notice: 'Ваш кошик пустий' }
+                                  notice: 'Your cart is currently empt' }
       format.json { head :no_content }
     end
   end
@@ -76,6 +77,6 @@ class CartsController < ApplicationController
     end
       def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to store_index_url, notice: 'Кошик не існує!'
+      redirect_to store_index_url, notice: 'Invalid cart'
     end
   end
