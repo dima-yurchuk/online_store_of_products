@@ -6,7 +6,7 @@ Rails.application.configure do
       domain: "gmail.com",
       authentication: "login",
       user_name: "dimayurchuk14@gmail.com",
-      password: "1234DD5678",
+      password: "1234DDD5678",
       enable_starttls_auto: true
   }
   # Settings specified here will take precedence over those in config/application.rb.
